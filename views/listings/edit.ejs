@@ -1,0 +1,48 @@
+<% layout ("/layouts/boilerplate") %>
+
+    <body>
+        <h3>Edit Your Listing</h3>
+        <form action="/listings/<%=listing._id%>?_method=put" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-8">
+                    <div>
+                        <label for="title" class="form-label">Title :</label>
+                        <input type="text" class="form-control" name="listing[title]" value="<%=listing.title%> ">
+                    </div>
+                    <div>
+                        <label for="description" class="form-label">Description:</label><br>
+                        <textarea name="listing[description]" class="form-control" rows="4"
+                            cols="50"><%=listing.description%></textarea>
+                    </div>
+                    <div>
+                        <label for="price" class="form-label">Price :</label>
+                        <input type="number" name="listing[price]" class="form-control"
+                            value="<%= listing.price %>"><br>
+                    </div>
+                    <div><label for="location" class="form-label">Location :</label>
+                        <input type="text" name="listing[location]" class="form-control" value="<%=listing.location%> ">
+                    </div>
+                    <div>
+                        <label for="country" class="form-label">Country :</label>
+                        <input type="text" name="listing[country]" class="form-control"
+                            value="<%=listing.country%> "><br>
+                    </div>
+
+                    <button class="btn  btn-dark add-btn">Edit My Listing</button>
+                </div>
+                <div class="col-4">
+                    <label for="image" class="form-label">Upload New Image:</label>
+                    <input type="file" name="listing[image]" class="form-control"  %>">
+                    <br>
+
+                    <% if (listing.image && listing.image.url) { %>
+                        <div class="card mt-3 shadow-sm">
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image">
+                        </div>
+                        <% } %>
+                </div>
+
+            </div>
+        </form>
+
+    </body>

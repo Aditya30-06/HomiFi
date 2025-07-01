@@ -1,0 +1,56 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="container mt-4">
+        <a href="/listings" class="btn btn-outline-secondary btn-sm mb-3">
+            <i class="fa-solid fa-arrow-left me-1"></i> Back
+        </a>
+
+        <h2 class="text-danger mb-4"><i class="fa-solid fa-envelope-open-text me-2"></i>Contact Me</h2>
+
+        <div class="row g-4">
+            <!-- Left column: Contact Info -->
+            <div class="col-md-6">
+                <div class="border p-4 rounded shadow-sm">
+                    <h5 class="text-secondary">Contact Details</h5>
+                    <ul class="list-unstyled mt-3 mb-0">
+                        <li><i class="fa-solid fa-user me-2 text-danger"></i> <strong>Name:</strong> Aditya Birla</li>
+                        <li><i class="fa-solid fa-envelope me-2 text-danger"></i> <strong>Email:</strong>
+                            aditya3004bir@gmail.com</li>
+                        <li><i class="fa-solid fa-phone me-2 text-danger"></i> <strong>Phone:</strong> +91 9462246616
+                        </li>
+                        <li><i class="fa-solid fa-location-dot me-2 text-danger"></i> <strong>Location:</strong> Delhi,
+                            India</li>
+                        <li><i class="fa-brands fa-github me-2 text-danger"></i> <strong>GitHub:</strong> <a
+                                style="text-decoration: none;" href="https://github.com/aditya30-06"
+                                target="_blank">github.com/aditya30-06</a></li>
+                        <li><i class="fa-brands fa-linkedin me-2 text-danger"></i> <strong>LinkedIn:</strong> <a
+                                style="text-decoration: none;" href="https://www.linkedin.com/in/aditya-birla-b38a3b320/"
+                                target="_blank">linkedin.com/in/aditya-birla</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right column: Contact Form -->
+            <div class="col-md-6">
+                <form class="border p-4 rounded shadow-sm">
+                    <h5 class="text-secondary mb-3">Send a Message</h5>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4"
+                            placeholder="Write your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Send Message</button>
+                </form>
+                <p class="text-muted small fst-italic mt-2">*This is just a dummy form</p>
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,156 @@
+<% layout ("/layouts/boilerplate") %>
+    <style>
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            /* display: none; */
+        }
+
+        .filter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2px;
+            min-width: 60px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            opacity: 0.7;
+        }
+
+        .filter:hover {
+            opacity: 1;
+            cursor: pointer;
+            transform: translateY(-1px);
+            transition: all 0.15s ease-in-out;
+            /* Removed font-size to avoid affecting text */
+        }
+
+
+        .filter i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+            color: #dc3545;
+        }
+
+        .tax-toggle label {
+            margin: 0;
+            padding: 0.75rem 1.25rem;
+            height: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            color: #495057;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+
+
+        .tax-info {
+            display: none;
+        }
+    </style>
+    <div id="filters">
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-house-chimney"></i></div>
+            <p>Entire Homes</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-sun"></i></div>
+            <p>Nature</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-water"></i></div>
+            <p>Lakefront</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>Urban</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-tree"></i></div>
+            <p>Cabins</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Pools</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-hot-tub-person"></i></div>
+            <p>Hot Tubs</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-dog"></i></div>
+            <p>Pet Friendly</p>
+        </div>
+        <div class="filter tax-toggle">
+            <div class="form-check form-switch d-flex align-items-center gap-2">
+                <input class="form-check-input" type="checkbox" id="priceWithTaxToggle">
+                <label class="form-check-label fw-medium text-muted" for="priceWithTaxToggle">
+                    Show tax-inclusive prices <!-- Changed: More natural UX wording -->
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mt-1 mb-4 border-bottom pb-3">
+        <h2 class="mb-0 fw-semibold text-secondary-emphasis d-flex align-items-center">
+            <i class="fa-solid fa-house-circle-check text-danger fs-4 me-3 bg-light p-2 rounded-circle shadow-sm"></i>
+            <span class="fs-4">Handpicked Listings Just for You</span>
+        </h2>
+    </div>
+
+    <div class="row  row-cols-lg-3 row-cols-md-3 row-cols-sm-1 ">
+        <%for (let listing of allListings) { %>
+            <a class="listing-link" href=" /listings/<%=listing._id%>">
+                <div class="card listing-card col" style="width: 20rem;">
+                    <img src="<%=listing.image.url%>" class="card-img-top" alt="Listing_image" style="height: 20rem;">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>
+                                <%= listing.title%>
+                            </b> <br>
+                            <span class="fw-semibold">
+                                ₹<%= listing.price.toLocaleString("en-IN") %>
+                            </span>
+                            <span class="text-muted">/night</span>
+                            <span class="tax-info text-secondary small" style="display: none;">
+                                &nbsp;&nbsp;+18% GST
+                            </span>
+
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <%}%>
+    </div>
+    <script>
+        let taxSwitch = document.getElementById("priceWithTaxToggle");
+        taxSwitch.addEventListener("click", () => {
+            let taxInfo = document.getElementsByClassName("tax-info");
+            for (let info of taxInfo) {
+                if (info.style.display != "inline") {
+                    info.style.display = "inline";
+                }
+                else {
+                    info.style.display = "none";
+                }
+            }
+
+        })
+    </script>

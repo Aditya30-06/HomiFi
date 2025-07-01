@@ -1,0 +1,30 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="row mt-3">
+        <h1 class="text-center mt-5 mb-4 fw-semibold" style="font-size: 2.5rem;">
+            Login on <span style="color: #fe244d; font-weight: 700;">Wanderlust</span>
+        </h1>
+
+
+
+        <div class="col-6 offset-3">
+            <form action="/login" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-label ">Username :</label>
+                    <input type="text" name="username" id="username" placeholder="Enter Username" class="form-control"
+                        required>
+                    <div class="valid-feedback">
+                        Username Looks GOOD !!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label needs-validation" novalidate>Password :</label>
+                    <input type="text" name="password" id="password" placeholder="Enter Password" class="form-control"
+                        required>
+                    <div class="valid-feedback">
+                        Password is Strong !!
+                    </div>
+                </div>
+                <button class="btn btn-dark add-btn">Login</button>
+            </form>
+        </div>
+    </div>
