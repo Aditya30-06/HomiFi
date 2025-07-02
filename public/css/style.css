@@ -70,13 +70,18 @@ body {
 .listing-card {
     border: none !important;
     margin-bottom: 2rem;
-
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-img-top {
     border-radius: 5%;
     width: 100% !important;
     object-fit: cover !important;
+    height: auto;
+    aspect-ratio: 1/1;
 }
 
 .card-body {
@@ -105,4 +110,36 @@ body {
 #map {
     height: 400px;
     width: 80vh;
+}
+
+@media (max-width: 992px) {
+    .listing-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .listing-card {
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .row {
+        flex-direction: column !important;
+        display: flex !important;
+        align-items: stretch !important;
+    }
+
+    .row>.col {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        margin-bottom: 1rem;
+    }
+    .listing-card {
+        max-width: 95vw;
+        margin-bottom: 1rem;
+    }
 }

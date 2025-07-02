@@ -114,11 +114,13 @@
         </h2>
     </div>
 
-    <div class="row  row-cols-lg-3 row-cols-md-3 row-cols-sm-1 ">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4">
+
         <%for (let listing of allListings) { %>
             <a class="listing-link" href=" /listings/<%=listing._id%>">
-                <div class="card listing-card col" style="width: 20rem;">
-                    <img src="<%=listing.image.url%>" class="card-img-top" alt="Listing_image" style="height: 20rem;">
+                <div class="card listing-card col">
+                    <img src="<%=listing.image.url%>" class="card-img-top img-fluid" alt="Listing_image"
+                        style="object-fit: cover; aspect-ratio: 1/1;">
                     <div class="card-body">
                         <p class="card-text">
                             <b>
