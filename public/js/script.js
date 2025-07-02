@@ -16,4 +16,17 @@
       form.classList.add('was-validated')
     }, false)
   })
-})()
+})
+function toggleDrawer(open) {
+  const drawer = document.getElementById('mobileDrawer');
+  const backdrop = document.getElementById('drawerBackdrop');
+  if (open) {
+    drawer.classList.add('active');
+    backdrop.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove('active');
+    backdrop.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
