@@ -144,15 +144,48 @@ body {
     }
 }
 
-/* Hide mobile drawer and backdrop on desktop */
+/* Hide mobile drawer, backdrop, and hamburger on desktop */
 #mobileDrawer,
-#drawerBackdrop {
+#drawerBackdrop,
+.navbar-toggler {
   display: none;
 }
 
 @media (max-width: 576px) {
   #mobileDrawer,
-  #drawerBackdrop {
+  #drawerBackdrop,
+  .navbar-toggler {
     display: block;
   }
+  .d-none.d-sm-flex {
+    display: none !important;
+  }
 }
+
+/* Hide the drawer by default, show only when .active is added */
+#mobileDrawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80vw;
+  max-width: 320px;
+  background: #fff;
+  z-index: 1050;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+#mobileDrawer.active {
+  transform: translateX(0);
+}
+#drawerBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  z-index: 1040;
+}
+
