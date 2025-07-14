@@ -143,3 +143,16 @@ body {
         margin-bottom: 1rem;
     }
 }
+
+/* Hide mobile drawer and backdrop on desktop */
+#mobileDrawer,
+#drawerBackdrop {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  #mobileDrawer,
+  #drawerBackdrop {
+    display: block;
+  }
+}
