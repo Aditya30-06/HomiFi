@@ -47,34 +47,31 @@
               <i class="fa-solid fa-right-to-bracket"></i> Login
             </a>
           </li>
-          <% } %>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold d-flex align-items-center gap-2 text-dark px-3" href="/logout">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+          </li>
+        <% } %>
 
-            <% if (currentUser) { %>
-              <li class="nav-item">
-                <a class="nav-link fw-semibold d-flex align-items-center gap-2 text-dark px-3" href="/logout">
-                  <i class="fa-solid fa-right-from-bracket"></i> Logout
-                </a>
-              </li>
-              <% } %>
-
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-user"></i>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center gap-2" href="/about">
-                        <i class="fa-solid fa-circle-info"></i> About
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center gap-2" href="/contact">
-                        <i class="fa-solid fa-envelope"></i> Contact
-                      </a>
-                    </li>
-                  </ul>
-                </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-user"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <a class="dropdown-item d-flex align-items-center gap-2" href="/about">
+                <i class="fa-solid fa-circle-info"></i> About
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center gap-2" href="/contact">
+                <i class="fa-solid fa-envelope"></i> Contact
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -83,26 +80,30 @@
 <!-- 📱 Mobile Side Drawer -->
 <div id="mobileDrawer" class="mobile-drawer">
   <button class="close-drawer" aria-label="Close Drawer" onclick="toggleDrawer(false)">&times;</button>
+
+  <form class="d-flex align-items-center px-3 mb-3" role="search">
+    <input class="form-control me-2 search" type="search" placeholder="Search Stays..." aria-label="Search"
+      style="max-width: 250px;">
+    <button class="btn btn-outline-danger d-flex align-items-center gap-2 search" type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <span class="d-none d-sm-inline">Search</span>
+    </button>
+  </form>
+
   <ul class="drawer-nav">
-    <form class="d-flex align-items-center" role="search">
-      <input class="form-control me-2 search" type="search" placeholder="Search Stays..." aria-label="Search"
-        style="max-width: 250px;">
-      <button class="btn btn-outline-danger d-flex align-items-center gap-2 search" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <span class="d-none d-sm-inline">Search</span>
-      </button>
-    </form>
     <li><a href="/listings" class="drawer-link"><i class="fa-solid fa-house me-2"></i> Explore</a></li>
     <li><a href="/listings/new" class="drawer-link"><i class="fa-solid fa-plus me-2"></i> Host Your Stay</a></li>
+
     <% if (!currentUser) { %>
       <li><a href="/signup" class="drawer-link"><i class="fa-solid fa-user-plus me-2"></i> Sign Up</a></li>
       <li><a href="/login" class="drawer-link"><i class="fa-solid fa-right-to-bracket me-2"></i> Login</a></li>
-      <% } %>
-        <% if (currentUser) { %>
-          <li><a href="/logout" class="drawer-link"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a></li>
-          <% } %>
-            <li><a href="/about" class="drawer-link"><i class="fa-solid fa-circle-info me-2"></i> About</a></li>
-            <li><a href="/contact" class="drawer-link"><i class="fa-solid fa-envelope me-2"></i> Contact</a></li>
+    <% } else { %>
+      <li><a href="/logout" class="drawer-link"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a></li>
+    <% } %>
+
+    <li><a href="/about" class="drawer-link"><i class="fa-solid fa-circle-info me-2"></i> About</a></li>
+    <li><a href="/contact" class="drawer-link"><i class="fa-solid fa-envelope me-2"></i> Contact</a></li>
   </ul>
 </div>
+
 <div id="drawerBackdrop" class="mobile-drawer-backdrop" onclick="toggleDrawer(false)"></div>
