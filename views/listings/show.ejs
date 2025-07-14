@@ -4,7 +4,7 @@
     const listing = <%- JSON.stringify(listing) %>;
 
   </script>
-  
+  <span><a class="btn btn-danger btn-sm text-white px-3 py-1 rounded-pill host-btn-mobile" href="/listings">Back</a></span>
   <div class="container mt-4">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-6">
@@ -12,7 +12,7 @@
           <%= listing.title %>
         </h3>
 
-        <div class="card listing-card w-60 col-md-8 col-lg-6">
+        <div class="card listing-card col-md-8 col-lg-6">
           <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image"><br>
           <div class="card-body">
             <p class="card-text">
