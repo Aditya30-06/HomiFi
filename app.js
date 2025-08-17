@@ -24,7 +24,7 @@ const User = require("./models/user.js");
 const mongoose = require('mongoose');
 main().catch(err => console.log(err));
 async function main() {
-    await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URI);
 
 }
 const Listing = require("./models/listing.js");
