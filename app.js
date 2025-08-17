@@ -27,7 +27,7 @@ async function main() {
     await mongoose.connect(process.env.MONGO_URI);
 
 }
-const Listing = require("./models/listing.js");
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
